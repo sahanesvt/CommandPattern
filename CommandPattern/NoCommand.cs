@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace CommandPattern
 {
-    class Program
+    public class NoCommand : Command
     {
-        static void Main(string[] args)
+        public void execute()
         {
-            
         }
     }
 }
