@@ -46,7 +46,7 @@ namespace CommandPattern
             stringBuff.Append("\n------ Remote Control ------\n");
             for(int i =0; i < onCommands.Length; i++)
             {
-                stringBuff.Append("[slot " + i + "] " + onCommands[i].GetType().ToString() + "     " + offCommands[i].GetType().ToString()+"\n");
+                stringBuff.Append("[slot " + i + "] " + onCommands[i].getName() + "      " + offCommands[i].getName()+"\n");
             }
             return stringBuff.ToString();
         }

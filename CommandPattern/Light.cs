@@ -8,7 +8,7 @@ namespace CommandPattern
 {
     public class Light
     {
-        private OnOff onOff = 0;
+        /*private OnOff onOff;
 
         private enum OnOff
         {
@@ -24,7 +24,22 @@ namespace CommandPattern
         public void off()
         {
             onOff = OnOff.Off;
+        }*/
+
+        String location;
+        public Light(String location)
+        {
+            this.location = location;
         }
 
+        public void on()
+        {
+            Console.WriteLine(location + " light is on");
+        }
+
+        public void off()
+        {
+            Console.WriteLine(location + " light is off");
+        }
     }
 }

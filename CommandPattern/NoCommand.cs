@@ -11,5 +11,7 @@ namespace CommandPattern
         public void execute()
         {
         }
+
+        public string getName() { return "No Command"; }
     }
 }

@@ -9,5 +9,6 @@ namespace CommandPattern
     public interface Command
     {
         void execute();
+        string getName();
     }
 }

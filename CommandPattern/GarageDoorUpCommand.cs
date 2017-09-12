@@ -6,30 +6,25 @@ using System.Threading.Tasks;
 
 namespace CommandPattern
 {
-    public class LightOnCommand:Command
+    public class GarageDoorUpCommand:Command
     {
-        private string name = "LightOnCommand";
+        private string name = "GarageDoorUpCommand";
 
         public string getName()
         {
             return name;
         }
 
-        private Light light;
+        private GarageDoor garageDoor;
 
-        public LightOnCommand(Light light)
+        public GarageDoorUpCommand(GarageDoor garageDoor)
         {
-            this.light = light;
+            this.garageDoor = garageDoor;
         }
 
         public void execute()
         {
-            light.on();
-        }
-
-        public void undo()
-        {
-            light.off();
+            garageDoor.up();
         }
     }
 }

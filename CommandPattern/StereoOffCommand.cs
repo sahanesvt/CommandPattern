@@ -6,30 +6,25 @@ using System.Threading.Tasks;
 
 namespace CommandPattern
 {
-    public class LightOnCommand:Command
+    public class StereoOffCommand:Command
     {
-        private string name = "LightOnCommand";
+        private string name = "StereoOffCommand";
 
         public string getName()
         {
             return name;
         }
 
-        private Light light;
+        private Stereo stereo;
 
-        public LightOnCommand(Light light)
+        public StereoOffCommand(Stereo stereo)
         {
-            this.light = light;
+            this.stereo = stereo;
         }
 
         public void execute()
         {
-            light.on();
-        }
-
-        public void undo()
-        {
-            light.off();
+            stereo.off();
         }
     }
 }

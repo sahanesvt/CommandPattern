@@ -8,6 +8,13 @@ namespace CommandPattern
 {
     public class LightOffCommand : Command
     {
+        private string name = "LightOffCommand";
+
+        public string getName()
+        {
+            return name;
+        }
+
         private Light light;
 
         public LightOffCommand(Light light)
@@ -17,7 +24,12 @@ namespace CommandPattern
 
         public void execute()
         {
-            light.off();        
+            light.off();
+        }
+
+        public void undo()
+        {
+            light.on();
         }
     }
 }

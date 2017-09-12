@@ -6,30 +6,24 @@ using System.Threading.Tasks;
 
 namespace CommandPattern
 {
-    public class LightOnCommand:Command
+    public class CeilingFanOnCommand:Command
     {
-        private string name = "LightOnCommand";
+        private string name = "CeilingFanOnCommand";
 
         public string getName()
         {
             return name;
         }
 
-        private Light light;
+        private CeilingFan ceilingFan;
 
-        public LightOnCommand(Light light)
+        public CeilingFanOnCommand(CeilingFan ceilingFan)
         {
-            this.light = light;
+            this.ceilingFan = ceilingFan;
         }
-
         public void execute()
         {
-            light.on();
-        }
-
-        public void undo()
-        {
-            light.off();
+            ceilingFan.high();
         }
     }
 }
