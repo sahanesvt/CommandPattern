@@ -12,6 +12,38 @@ namespace CommandPattern
         {
             RemoteControl remoteControl = new RemoteControl();
 
+            Light light = new Light("Living Room");
+            TV tv = new TV("Living Room");
+            Stereo stereo = new Stereo("Living Room");
+            HotTub hottub = new HotTub();
+
+            LightOnCommand lightOn = new LightOnCommand(light);
+            StereoOnCommand stereoOn = new StereoOnCommand(stereo);
+            TVOnCommand tvOn = new TVOnCommand(tv);
+            HotTubOnCommand hotTubOn = new HotTubOnCommand(hottub);
+
+            LightOffCommand lightOff = new LightOffCommand(light);
+            StereoOffCommand stereoOff = new StereoOffCommand(stereo);
+            TVOffCommand tvOff = new TVOffCommand(tv);
+            HotTubOffCommand hotTubOff = new HotTubOffCommand(hottub);
+
+            Command[] partyOn = new Command[] { lightOn, stereoOn, tvOn, hotTubOn };
+            Command[] partyOff = new Command[] { lightOff, stereoOff, tvOff, hotTubOff };
+
+            MacroCommand partyOnMacro = new MacroCommand(partyOn);
+            MacroCommand partyOffMacro = new MacroCommand(partyOff);
+
+            remoteControl.setCommand(0, partyOnMacro, partyOffMacro);
+
+            Console.WriteLine(remoteControl.toString());
+            Console.WriteLine("--- Pushing Macro On ---");
+            remoteControl.onButtonWasPushed(0);
+            Console.WriteLine("--- Pushing Macro Off ---");
+            remoteControl.offButtonWasPushed(0);
+
+
+
+            /*
             Light livingRoomLight = new Light("Living Room");
             Light kitchenLight = new Light("Kitchen");
             CeilingFan ceilingFan = new CeilingFan("Living Room");
@@ -46,7 +78,8 @@ namespace CommandPattern
             remoteControl.onButtonWasPushed(2);
             remoteControl.offButtonWasPushed(2);
             remoteControl.onButtonWasPushed(3);
-            remoteControl.offButtonWasPushed(3);
+            remoteControl.offButtonWasPushed(3);*/
+
         }
     }
 }

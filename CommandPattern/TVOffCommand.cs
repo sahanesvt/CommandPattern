@@ -6,29 +6,30 @@ using System.Threading.Tasks;
 
 namespace CommandPattern
 {
-    public class CeilingFanOffCommand:Command
+    public class TVOffCommand:Command
     {
-        private string name = "CeilingFanOffCommand";
+        private string name = "TVOffCommand";
 
         public string getName()
         {
             return name;
         }
 
-        private CeilingFan ceilingFan;
+        private TV tv;
 
-        public CeilingFanOffCommand(CeilingFan ceilingFan)
+        public TVOffCommand(TV tv)
         {
-            this.ceilingFan = ceilingFan;
+            this.tv = tv;
         }
+
         public void execute()
         {
-            ceilingFan.off();
-        }
-        public void undo()
-        {
-            ceilingFan.high();
+            tv.off();
         }
 
+        public void undo()
+        {
+            tv.on();
+        }
     }
 }

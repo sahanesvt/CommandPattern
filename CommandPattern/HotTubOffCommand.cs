@@ -6,29 +6,30 @@ using System.Threading.Tasks;
 
 namespace CommandPattern
 {
-    public class CeilingFanOffCommand:Command
+    public class HotTubOffCommand:Command
     {
-        private string name = "CeilingFanOffCommand";
+        private string name = "HotTubOffCommand";
 
         public string getName()
         {
             return name;
         }
 
-        private CeilingFan ceilingFan;
+        private HotTub hotTub;
 
-        public CeilingFanOffCommand(CeilingFan ceilingFan)
+        public HotTubOffCommand(HotTub hotTub)
         {
-            this.ceilingFan = ceilingFan;
+            this.hotTub = hotTub;
         }
+
         public void execute()
         {
-            ceilingFan.off();
-        }
-        public void undo()
-        {
-            ceilingFan.high();
+            hotTub.off();
         }
 
+        public void undo()
+        {
+            hotTub.on();
+        }
     }
 }
