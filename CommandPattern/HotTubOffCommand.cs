@@ -24,6 +24,7 @@ namespace CommandPattern
 
         public void execute()
         {
+            hotTub.setTemperature(98);
             hotTub.off();
         }
 

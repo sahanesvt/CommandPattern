@@ -40,6 +40,7 @@ namespace CommandPattern
             remoteControl.onButtonWasPushed(0);
             Console.WriteLine("--- Pushing Macro Off ---");
             remoteControl.offButtonWasPushed(0);
+            remoteControl.undoButtonWasPushed();
 
 
 

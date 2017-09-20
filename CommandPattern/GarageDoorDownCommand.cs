@@ -26,5 +26,10 @@ namespace CommandPattern
         {
             garageDoor.up();
         }
+
+        public void undo()
+        {
+            garageDoor.down();
+        }
     }
 }

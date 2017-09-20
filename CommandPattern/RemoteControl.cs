@@ -8,8 +8,9 @@ namespace CommandPattern
 {
     public class RemoteControl
     {
-        private Command[] onCommands;
-        private Command[] offCommands;
+        Command[] onCommands;
+        Command[] offCommands;
+        Command undoCommand;
 
         public RemoteControl()
         {
@@ -22,9 +23,10 @@ namespace CommandPattern
                 onCommands[i] = noCommand;
                 offCommands[i] = noCommand;
             }
+            undoCommand = noCommand;
         }
 
-        public void setCommand(int slot, Command onCommand,Command offCommand)
+        public void setCommand(int slot, Command onCommand, Command offCommand)
         {
             onCommands[slot] = onCommand;
             offCommands[slot] = offCommand;
@@ -33,11 +35,18 @@ namespace CommandPattern
         public void onButtonWasPushed(int slot)
         {
             onCommands[slot].execute();
+            undoCommand = onCommands[slot];
         }
 
         public void offButtonWasPushed(int slot)
         {
             offCommands[slot].execute();
+            undoCommand = offCommands[slot];
+        }
+
+        public void undoButtonWasPushed()
+        {
+            undoCommand.undo();
         }
 
         public string toString()
@@ -48,6 +57,7 @@ namespace CommandPattern
             {
                 stringBuff.Append("[slot " + i + "] " + onCommands[i].getName() + "      " + offCommands[i].getName()+"\n");
             }
+            stringBuff.Append("[undo] " + undoCommand.getName() + "\n");
             return stringBuff.ToString();
         }
     }

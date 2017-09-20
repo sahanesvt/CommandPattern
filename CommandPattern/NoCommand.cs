@@ -11,6 +11,10 @@ namespace CommandPattern
         public void execute()
         {
         }
+        
+        public void undo()
+        {
+        }
 
         public string getName() { return "No Command"; }
     }

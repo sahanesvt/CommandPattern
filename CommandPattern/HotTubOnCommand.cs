@@ -25,6 +25,8 @@ namespace CommandPattern
         public void execute()
         {
             hotTub.on();
+            hotTub.setTemperature(104);
+            hotTub.circulate();
         }
 
         public void undo()

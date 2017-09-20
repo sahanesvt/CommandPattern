@@ -6,37 +6,29 @@ using System.Threading.Tasks;
 
 namespace CommandPattern
 {
-    public class CeilingFanOffCommand:Command
+    public class CeilingFanHighCommand
     {
-        private string name = "CeilingFanOffCommand";
-
-        public string getName()
-        {
-            return name;
-        }
-
         CeilingFan ceilingFan;
         int prevSpeed;
 
-        public CeilingFanOffCommand(CeilingFan ceilingFan)
+        public CeilingFanHighCommand(CeilingFan ceilingFan)
         {
             this.ceilingFan = ceilingFan;
         }
         public void execute()
         {
             prevSpeed = ceilingFan.getSpeed();
-            ceilingFan.off();
+            ceilingFan.high();
         }
         public void undo()
         {
             switch (prevSpeed)
             {
-                case CeilingFan.HIGH: ceilingFan.high(); break; 
+                case CeilingFan.HIGH: ceilingFan.high(); break;
                 case CeilingFan.MEDIUM: ceilingFan.medium(); break;
                 case CeilingFan.LOW: ceilingFan.low(); break;
                 default: ceilingFan.off(); break;
             }
         }
-
     }
 }

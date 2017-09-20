@@ -27,6 +27,8 @@ namespace CommandPattern
         }*/
 
         String location;
+        int level;
+
         public Light(String location)
         {
             this.location = location;
@@ -34,12 +36,32 @@ namespace CommandPattern
 
         public void on()
         {
-            Console.WriteLine(location + " light is on");
+            level = 100;
+            Console.WriteLine("Light is on");
         }
 
         public void off()
         {
-            Console.WriteLine(location + " light is off");
+            level = 0;
+            Console.WriteLine("Light is off");
+        }
+
+        public void dim(int level)
+        {
+            this.level = level;
+            if (level == 0)
+            {
+                off();
+            }
+            else
+            {
+                Console.WriteLine("Light is dimmed to " + level + "%");
+            }
+        }
+
+        public int getLevel()
+        {
+            return level;
         }
     }
 }

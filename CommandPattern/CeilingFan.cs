@@ -8,11 +8,12 @@ namespace CommandPattern
 {
     public class CeilingFan
     {
-        String location = "";
-        int level;
-        public static readonly int HIGH = 2;
-        public static readonly int MEDIUM = 1;
-        public static readonly int LOW = 0;
+        public const int HIGH = 3;
+        public const int MEDIUM = 2;
+        public const int LOW = 1;
+        public const int OFF = 0;
+        String location;
+        int speed;
 
         public CeilingFan(String location)
         {
@@ -22,35 +23,34 @@ namespace CommandPattern
         public void high()
         {
             // turns the ceiling fan on to high
-            level = HIGH;
+            speed = HIGH;
             Console.WriteLine(location + " ceiling fan is on high");
-
         }
 
         public void medium()
         {
             // turns the ceiling fan on to medium
-            level = MEDIUM;
+            speed = MEDIUM;
             Console.WriteLine(location + " ceiling fan is on medium");
         }
 
         public void low()
         {
             // turns the ceiling fan on to low
-            level = LOW;
+            speed = LOW;
             Console.WriteLine(location + " ceiling fan is on low");
         }
 
         public void off()
         {
             // turns the ceiling fan off
-            level = 0;
+            speed = OFF;
             Console.WriteLine(location + " ceiling fan is off");
         }
 
         public int getSpeed()
         {
-            return level;
+            return speed;
         }
     }
 }

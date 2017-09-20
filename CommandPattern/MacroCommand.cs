@@ -27,7 +27,7 @@ namespace CommandPattern
         {
             for (int i = commands.Length -1; i == 0; i--)
             {
-                commands[i]
+                commands[i].undo();
             }
         }
 
